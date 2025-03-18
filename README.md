@@ -1,7 +1,3 @@
-<p align="center" width="100%">
-  <a href="https://search.maven.org/artifact/pinankh/loading-button"><img src="https://img.shields.io/maven-central/v/pinankh/loading-button" alt="Maven Central"/></a>
-</p>
-
 # Progress Button Android
 
 ![enter image description here](https://i.stack.imgur.com/8SHR1.gif)
@@ -12,7 +8,6 @@ Android Button that morphs into a loading progress bar.
   - Really simple to use.
   - Makes your app looks cooler =D
 
-You can check how this library was implemented here (Old version): https://medium.com/p/9efee6e39711/
 
 ## Contents
 
@@ -149,62 +144,6 @@ The button enters this state after `stopAnimation()` when the button is not morp
  - `app:spinning_bar_padding`: Changes the padding of the spinning bar in relation of the button bounds.
  - `app:initialCornerAngle`: The initial corner angle of the animation. Insert 0 if you have a square button.
  - `app:finalCornerAngle`: The final corner angle of the animation.
-
-## Problems and troubleshooting
-
-### Animation
-This library only works with selector as the background, but not with shape as the root tag. Please put your shape inside a selector, like this:
-
-```
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:state_pressed="false" android:state_selected="false">
-    <shape android:shape="rectangle">
-        <corners android:radius="10dp" />
-        <solid android:color="@android:color/transparent" />
-        <stroke android:width="3dp"
-            android:color="@color/black"/>
-    </shape>
-</item>
-</selector>
-```
-*I still need to debug this problem.*
-  
-
-### Manifest merge
-
-This library only supports androidx since prior the version 2.0.0. So don't try to use it with the old Support Library. Use androidx instead.
-
-### Avoid Memory Leaks
-Prior to version 2.1.0, to avoid memory leaks is your code, you must dispose the buttons in the onDestroy method. Example:
-
-```java
-override fun onDestroy() {
-        super.onDestroy()
-	progressButton.dispose()
-}
-```
-
-In version 2.1.0, `ProgressButton` was updated to be a `LifecycleObserver` and will automatically
-call `dispose()` when an `onDestroy()` event is observed by the lifecycle owner.
-
-## Contributing
-###Setup Git Pre-commit hook script (Optional)
-
-The purpose of setting up this optional pre-commit hook is so that the `lintKotlin` Gradle task runs each time you as a developer create a commit. Although the Travis build will run `lintKotlin` in the cloud, running this locally will allow you to catch Kotlin Lint violations early in the development cycle without having to wait for Travis's build report.
-
-To enable the script, execute the following commands starting from the project's root directory:
-
-	cd .git/hooks
-	ln -s ../../scripts/pre-commit.sh pre-commit     
-
-## Bugs and Feedback
-
-For bugs, feature requests, and discussion please use [GitHub Issues](https://github.com/leandroBorgesFerreira/LoadingButtonAndroid/issues).
-
-## Credits
-
-This library was inspired in this repo: https://github.com/dmytrodanylyk/android-morphing-button
 
 ### And that's it! Enjoy!
 ****
