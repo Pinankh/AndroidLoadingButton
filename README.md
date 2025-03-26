@@ -147,3 +147,10 @@ The button enters this state after `stopAnimation()` when the button is not morp
 
 ### And that's it! Enjoy!
 ****
+
+<!-- CONTACT -->
+## Contact
+
+Pinankh Patel - pinankhpatel@hotmail.com
+
+Linkedin: https://www.linkedin.com/in/pinankh-patel-19400350/
